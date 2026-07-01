@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services | Trablus Tercüme</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #00AEEF;
+      --green:   #00A651;
+      --navy:    #0D1B2A;
+      --navy2:   #162840;
+      --gold:    #C8A951;
+      --light:   #F4F8FC;
+      --white:   #FFFFFF;
+      --text:    #1E2C3A;
+      --muted:   #607080;
+      --border:  #D8E5EF;
+      --radius:  10px;
+      --shadow:  0 4px 24px rgba(0,0,0,0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─────────────────────────────────────────── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(13,27,42,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: box-shadow 0.3s;
+    }
+    header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4); }
+
+    .header-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo-wrap img { height: 44px; display: block; }
+
+    nav { display: flex; align-items: center; gap: 6px; }
+
+    nav a {
+      color: rgba(255,255,255,0.80);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+    }
+    nav a:hover { color: #fff; background: rgba(255,255,255,0.09); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      color: #fff !important;
+      padding: 9px 20px !important;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.88; background: linear-gradient(135deg, var(--blue), var(--green)) !important; }
+
+    .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .menu-toggle span { width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: 0.3s; }
+
+    /* ─── NEW INTERNAL PAGE STYLES ───────────────────────── */
+    .internal-page { padding: 140px 24px 80px; min-height: 70vh; background: var(--white); }
+    .page-title { text-align: center; margin-bottom: 60px; }
+    .page-title h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 2.8rem); color: var(--navy); }
+    .page-title h1 span { color: var(--blue); }
+    .page-title p { color: var(--muted); margin-top: 10px; font-size: 1.1rem; max-width: 600px; margin-inline: auto; }
+
+    /* Services List Layout */
+    .services-list { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px; }
+    .service-row { display: flex; gap: 24px; align-items: flex-start; background: var(--light); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; }
+    .service-row:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .service-img { width: 120px; height: 120px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #e2e8f0; }
+    .service-img img { width: 100%; height: 100%; object-fit: cover; }
+    .service-text h3 { font-family: 'Playfair Display', serif; color: var(--navy); font-size: 1.3rem; margin-bottom: 10px; }
+    .service-text p { color: var(--muted); line-height: 1.6; font-size: 0.95rem; }
+
+    /* Contact Grid Layout */
+    .contact-layout { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+    .contact-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 24px; }
+    .contact-box { background: var(--white); border: 1px solid var(--border); padding: 30px; border-radius: var(--radius); text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+    .contact-box h3 { color: var(--navy); font-size: 1.1rem; margin-bottom: 20px; font-weight: 600; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+    .contact-box .icon { font-size: 1.5rem; color: var(--blue); margin-bottom: 8px; display: block; }
+    .contact-box p { color: var(--muted); line-height: 1.6; font-size: 0.9rem; margin-bottom: 12px; }
+    .contact-box a { color: var(--blue); text-decoration: none; }
+    .map-container { width: 100%; height: 400px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+
+    /* References Grid Layout */
+    .references-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 24px; }
+    
+    .ref-logo { 
+      border: 1px solid var(--border); 
+      padding: 20px; 
+      border-radius: var(--radius); 
+      display: flex; 
+      flex-direction: column;
+      align-items: center; 
+      justify-content: center; 
+      aspect-ratio: 3/2; 
+      background: #fff; 
+      transition: all 0.3s ease; 
+      text-align: center;
+      gap: 12px;
+    }
+    
+    .ref-logo img { 
+      width: 48px; 
+      height: 48px; 
+      object-fit: contain; 
+      /* filter: grayscale(100%);  */
+      opacity: 0.7; 
+      transition: 0.3s; 
+    }
+    
+    .ref-logo span {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      transition: 0.3s;
+    }
+
+    .ref-logo:hover { box-shadow: var(--shadow); border-color: var(--blue); }
+    .ref-logo:hover img { opacity: 1; }
+    .ref-logo:hover span { color: var(--blue); }
+
+    /* About Us Layout */
+    .about-content { max-width: 800px; margin: 0 auto; color: var(--text); font-size: 1.05rem; line-height: 1.8; }
+    .about-content p { margin-bottom: 24px; }
+
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .service-row { flex-direction: column; }
+      .service-img { width: 100%; height: 180px; }
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: #071525;
+      color: rgba(255,255,255,0.65);
+      padding: 60px 24px 30px;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+    .footer-brand img { height: 40px; margin-bottom: 18px; }
+    .footer-brand p { font-size: 0.88rem; line-height: 1.72; color: rgba(255,255,255,0.50); }
+    .footer-col h5 {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--blue);
+      margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; font-size: 0.88rem; }
+    .footer-col ul li a { color: rgba(255,255,255,0.60); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--blue); }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 10px; font-size: 0.88rem;
+    }
+    .contact-item span.ic { color: var(--blue); flex-shrink: 0; font-size: 1rem; }
+    .footer-bottom {
+      max-width: 1200px; margin: 0 auto;
+      padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 0.82rem; color: rgba(255,255,255,0.35);
+    }
+    .footer-hours {
+      background: rgba(0,174,239,0.08);
+      border: 1px solid rgba(0,174,239,0.18);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 16px;
+      font-size: 0.86rem;
+    }
+    .footer-hours strong { color: rgba(255,255,255,0.80); }
+
+    /* ─── FLOATING CONTACT (UPDATED) ──────────────────────── */
+    .float-contact {
+      position: fixed; right: 0; top: 50%;
+      transform: translateY(-50%);
+      z-index: 900;
+      display: flex; 
+      flex-direction: column; 
+      gap: 2px;
+      align-items: flex-end; /* <-- This stops them from stretching together */
+    }
+    .float-btn {
+      width: 52px; height: 52px;
+      display: flex; align-items: center; 
+      justify-content: flex-start;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: width 0.25s, background 0.2s;
+      border-radius: 10px 0 0 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    .float-icon {
+      width: 52px; height: 52px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .float-btn.phone  { background: var(--navy2); }
+    .float-btn.email  { background: var(--blue); }
+    .float-btn.whatsapp { background: #25D366; }
+    .float-btn:hover { width: 160px; z-index: 10; }
+    .float-btn.phone:hover    { background: var(--navy2); }
+    .float-btn.email:hover    { background: var(--blue); }
+    .float-btn.whatsapp:hover { background: #25D366; }
+    .float-label {
+      position: absolute; left: 52px;
+      font-size: 0.80rem; font-weight: 600; white-space: nowrap;
+      opacity: 0; transition: opacity 0.25s;
+      padding: 0 14px;
+    }
+    .float-btn:hover .float-label { opacity: 1; }
+
+    @media (max-width: 768px) {
+      nav { display: none; flex-direction: column; gap: 0; position: fixed; inset: 72px 0 0;
+            background: rgba(13,27,42,0.98); padding: 16px; }
+      nav.open { display: flex; }
+      nav a { padding: 14px 16px; border-radius: 8px; font-size: 1rem; }
+      .menu-toggle { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ──────────────────────────────────────────────── -->
+<header id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-wrap">
+      <img src="logo.png" alt="Trablus Tercüme Logo" />
+    </a>
+    <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </div>
+    <nav id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="references.html">References</a>
+      <a href="services.html">Our Services</a>
+      <a href="contact.html" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+ <!-- ── MAIN CONTENT: REFERENCES ──────────────────────────── -->
+<section class="internal-page">
+  <div class="page-title">
+    <h1>Our <span>References</span></h1>
+    <p>Proudly working alongside leading brands and organizations.</p>
+  </div>
+
+<div class="references-grid">
+    <div class="ref-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain=gantek.com" alt="Gantek"><span>Gantek</span></div>
+    <div class="ref-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain=calikenerji.com" alt="Calik Enerji"><span>Çalık Enerji</span></div>
+    <div class="ref-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain=calik.com" alt="Calik Holding"><span>Çalık Holding</span></div>
+    <div class="ref-logo"><img src="refs/Dardanel.png" alt="Dardanel"><span>Dardanel</span></div>
+    <div class="ref-logo"><img src="refs/dogus.jpeg" alt="Dogus Insaat"><span>Doğuş İnşaat</span></div>
+    <div class="ref-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain=espressolab.com" alt="Espressolab"><span>Espressolab</span></div>
+    
+    <div class="ref-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain=gapinsaat.com" alt="Gap Insaat"><span>Gap İnşaat</span></div>
+    <div class="ref-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain=gappazarlama.com" alt="Gap Pazarlama"><span>Gap Pazarlama</span></div>
+    <div class="ref-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain=haribo.com" alt="Haribo"><span>Haribo</span></div>
+    <div class="ref-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain=hayat.com.tr" alt="Hayat"><span>Hayat</span></div>
+    <div class="ref-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain=ronesans.com" alt="Ronesans Holding"><span>Rönesans</span></div>
+    <div class="ref-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain=kerevitas.com.tr" alt="Kerevitas"><span>Kerevitaş</span></div>
+    <div class="ref-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain=kocakfarma.com" alt="Kocak Farma"><span>Koçak Farma</span></div>
+    
+    <div class="ref-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain=nuhogluinsaat.com.tr" alt="Nuhoglu"><span>Nuhoğlu</span></div>
+    <div class="ref-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain=pakmaya.com" alt="Pakmaya"><span>Pakmaya</span></div>
+    <div class="ref-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain=partnerteknik.com" alt="Partner Teknik"><span>Partner Teknik</span></div>
+    <div class="ref-logo"><img src="refs/rixos.jpeg" alt="Rixos Hotels"><span>Rixos Hotels</span></div>
+    <div class="ref-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain=sembolinsaat.com.tr" alt="SML Sembol"><span>SML Sembol</span></div>
+    <div class="ref-logo"><img src="refs/superfresh.png" alt="SuperFresh"><span>SuperFresh</span></div>
+    <div class="ref-logo"><img src="refs/system-logo-dark.svg" alt="System"><span>System İnşaat</span></div>
+    
+    <div class="ref-logo"><img src="https://www.google.com/s2/favicons?sz=128&domain=sutis.com.tr" alt="Emirgan Sutis"><span>Emirgan Sütiş</span></div>
+    <div class="ref-logo"><img src="refs/yapiveyapi.jpeg" alt="Yapi Insaat"><span>Yapı ve Yapı</span></div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="Trablus Tercüme" />
+      <p>Turkey's pioneer company for consular affairs and certified translation — serving businesses and individuals since 1990 from the heart of Istanbul.</p>
+      <div class="footer-hours">
+        <strong>Office Hours</strong><br />
+        Mon – Fri &nbsp;|&nbsp; 08:00 – 18:00
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Navigation</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="references.html">References</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <div class="contact-item"><span class="ic">📞</span>+90 (212) 245 91 97</div>
+      <div class="contact-item"><span class="ic">📱</span>+90 (541) 341 99 98</div>
+      <div class="contact-item"><span class="ic">✉️</span>mense@trablus.net</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Trablus Tercüme ve Danışmanlık Hizmetleri Ltd. Şti.</span>
+    <span style="color:rgba(255,255,255,0.20);">Taksim, Istanbul</span>
+  </div>
+</footer>
+
+<!-- ── FLOATING CONTACT ──────────────────────────────────────── -->
+<div class="float-contact" role="complementary" aria-label="Quick contact">
+  <a href="tel:+902122459197" class="float-btn phone" title="Call us">
+    <span class="float-icon">📞</span><span class="float-label">Call Us</span>
+  </a>
+  <a href="mailto:mense@trablus.net" class="float-btn email" title="Email us">
+    <span class="float-icon">✉️</span><span class="float-label">Email Us</span>
+  </a>
+  <a href="https://wa.me/905413419998" class="float-btn whatsapp" title="WhatsApp" target="_blank" rel="noopener">
+    <span class="float-icon">💬</span><span class="float-label">WhatsApp</span>
+  </a>
+</div>
+
+<script>
+  // Header scroll effect
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 20); });
+  // Mobile menu
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('main-nav');
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    const spans = toggle.querySelectorAll('span');
+    if (nav.classList.contains('open')) {
+      spans[0].style.transform = 'translateY(7px) rotate(45deg)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+    } else {
+      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }
+  });
+</script>
+</body>
+</html>
