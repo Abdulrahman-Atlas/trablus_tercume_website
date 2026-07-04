@@ -1,29 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trablus Tercüme | Translation & Consular Affairs</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --blue:    #00AEEF;
-      --green:   #00A651;
-      --navy:    #0D1B2A;
-      --navy2:   #162840;
-      --gold:    #C8A951;
-      --light:   #F4F8FC;
-      --white:   #FFFFFF;
-      --text:    #1E2C3A;
-      --muted:   #607080;
-      --border:  #D8E5EF;
-      --radius:  10px;
-      --shadow:  0 4px 24px rgba(0,0,0,0.10);
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    html { scroll-behavior: smooth; }
+    :root {
+      --blue: #00AEEF;
+      --green: #00A651;
+      --navy: #0D1B2A;
+      --navy2: #162840;
+      --gold: #C8A951;
+      --light: #F4F8FC;
+      --white: #FFFFFF;
+      --text: #1E2C3A;
+      --muted: #607080;
+      --border: #D8E5EF;
+      --radius: 10px;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -34,27 +45,44 @@
 
     /* ─── HEADER ─────────────────────────────────────────── */
     header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(13,27,42,0.96);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(13, 27, 42, 0.96);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       transition: box-shadow 0.3s;
     }
-    header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4); }
+
+    header.scrolled {
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    }
 
     .header-inner {
-      max-width: 1200px; margin: 0 auto;
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 0 24px;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       height: 72px;
     }
 
-    .logo-wrap img { height: 44px; display: block; }
+    .logo-wrap img {
+      height: 44px;
+      display: block;
+    }
 
-    nav { display: flex; align-items: center; gap: 6px; }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
     nav a {
-      color: rgba(255,255,255,0.80);
+      color: rgba(255, 255, 255, 0.80);
       text-decoration: none;
       font-size: 0.88rem;
       font-weight: 500;
@@ -63,7 +91,11 @@
       border-radius: 6px;
       transition: color 0.2s, background 0.2s;
     }
-    nav a:hover { color: #fff; background: rgba(255,255,255,0.09); }
+
+    nav a:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.09);
+    }
 
     .nav-cta {
       background: linear-gradient(135deg, var(--blue), var(--green));
@@ -74,28 +106,49 @@
       letter-spacing: 0.02em;
       transition: opacity 0.2s !important;
     }
-    .nav-cta:hover { opacity: 0.88; background: linear-gradient(135deg, var(--blue), var(--green)) !important; }
 
-    .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .menu-toggle span { width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: 0.3s; }
+    .nav-cta:hover {
+      opacity: 0.88;
+      background: linear-gradient(135deg, var(--blue), var(--green)) !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .menu-toggle span {
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
 
     /* ─── HERO ────────────────────────────────────────────── */
     .hero {
       min-height: 100vh;
       background: linear-gradient(160deg, var(--navy) 0%, var(--navy2) 55%, #0a2035 100%);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      position: relative; overflow: hidden;
+      position: relative;
+      overflow: hidden;
       padding: 120px 24px 80px;
     }
 
     /* Subtle mesh / dot pattern */
     .hero::before {
       content: '';
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       background-image:
-        radial-gradient(circle at 20% 30%, rgba(0,174,239,0.10) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(0,166,81,0.10) 0%, transparent 50%);
+        radial-gradient(circle at 20% 30%, rgba(0, 174, 239, 0.10) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(0, 166, 81, 0.10) 0%, transparent 50%);
       pointer-events: none;
     }
 
@@ -103,27 +156,62 @@
     .hero-ring {
       position: absolute;
       border-radius: 50%;
-      border: 1px solid rgba(0,174,239,0.12);
+      border: 1px solid rgba(0, 174, 239, 0.12);
       animation: expand 6s ease-out infinite;
     }
-    .hero-ring:nth-child(1) { width: 400px; height: 400px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: 0s; }
-    .hero-ring:nth-child(2) { width: 650px; height: 650px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: 2s; }
-    .hero-ring:nth-child(3) { width: 900px; height: 900px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: 4s; }
 
-    @keyframes expand {
-      0%   { opacity: 0.6; }
-      100% { opacity: 0; }
+    .hero-ring:nth-child(1) {
+      width: 400px;
+      height: 400px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: 0s;
     }
 
-    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+    .hero-ring:nth-child(2) {
+      width: 650px;
+      height: 650px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: 2s;
+    }
+
+    .hero-ring:nth-child(3) {
+      width: 900px;
+      height: 900px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: 4s;
+    }
+
+    @keyframes expand {
+      0% {
+        opacity: 0.6;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
 
     .hero-eyebrow {
       display: inline-block;
-      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--blue);
-      background: rgba(0,174,239,0.10);
-      border: 1px solid rgba(0,174,239,0.25);
+      background: rgba(0, 174, 239, 0.10);
+      border: 1px solid rgba(0, 174, 239, 0.25);
       border-radius: 40px;
       padding: 6px 18px;
       margin-bottom: 28px;
@@ -131,11 +219,14 @@
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-size: clamp(2rem, 4.2vw, 3.1rem);
       font-weight: 700;
       color: var(--white);
-      line-height: 1.18;
-      margin-bottom: 24px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .hero h1 span {
@@ -146,14 +237,19 @@
     }
 
     .hero-sub {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.68);
-      line-height: 1.7;
-      max-width: 600px;
-      margin: 0 auto 40px;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.8;
+      max-width: 760px;
+      margin: 0 auto 36px;
     }
 
-    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--blue), var(--green));
@@ -166,11 +262,15 @@
       letter-spacing: 0.02em;
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,174,239,0.35); }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 174, 239, 0.35);
+    }
 
     .btn-outline {
-      border: 1.5px solid rgba(255,255,255,0.30);
-      color: rgba(255,255,255,0.85);
+      border: 1.5px solid rgba(255, 255, 255, 0.30);
+      color: rgba(255, 255, 255, 0.85);
       padding: 14px 32px;
       border-radius: 8px;
       font-weight: 500;
@@ -178,61 +278,236 @@
       text-decoration: none;
       transition: border-color 0.2s, color 0.2s;
     }
-    .btn-outline:hover { border-color: var(--blue); color: #fff; }
+
+    .btn-outline:hover {
+      border-color: var(--blue);
+      color: #fff;
+    }
 
     /* Stats bar */
     .hero-stats {
       margin-top: 60px;
-      display: flex; gap: 0;
+      display: flex;
+      gap: 0;
       justify-content: center;
-      border-top: 1px solid rgba(255,255,255,0.10);
+      border-top: 1px solid rgba(255, 255, 255, 0.10);
       padding-top: 40px;
     }
+
     .stat {
-      flex: 1; max-width: 200px;
+      flex: 1;
+      max-width: 200px;
       text-align: center;
       padding: 0 20px;
-      border-right: 1px solid rgba(255,255,255,0.10);
+      border-right: 1px solid rgba(255, 255, 255, 0.10);
     }
-    .stat:last-child { border-right: none; }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
     .stat-num {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem; font-weight: 700;
+      font-size: 2rem;
+      font-weight: 700;
       background: linear-gradient(90deg, var(--blue), var(--green));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .stat-label { font-size: 0.80rem; color: rgba(255,255,255,0.50); margin-top: 4px; letter-spacing: 0.05em; }
+
+    .stat-label {
+      font-size: 0.80rem;
+      color: rgba(255, 255, 255, 0.50);
+      margin-top: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── GOOGLE REVIEWS ─────────────────────────────────── */
+    .reviews-section {
+      background: linear-gradient(180deg, #f8fcff 0%, #ffffff 100%);
+      padding-top: 48px;
+      padding-bottom: 72px;
+      border-top: 1px solid rgba(0, 174, 239, 0.08);
+    }
+
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .reviews-header .section-lead {
+      margin: 0 auto;
+    }
+
+    .reviews-summary {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .rating-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 174, 239, 0.10);
+      border: 1px solid rgba(0, 174, 239, 0.20);
+      color: var(--navy);
+      font-weight: 600;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 0.92rem;
+    }
+
+    .google-link {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .google-link:hover {
+      text-decoration: underline;
+    }
+
+    .reviews-slider {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      padding: 0 48px;
+    }
+
+    .reviews-viewport {
+      overflow: hidden;
+      position: relative;
+      flex: 1;
+      mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    }
+
+    .reviews-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      will-change: transform;
+      padding: 4px 0;
+      transition: transform 0.45s ease;
+    }
+
+    .review-card {
+      min-width: 280px;
+      max-width: 320px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 22px 20px;
+      box-shadow: 0 10px 30px rgba(13, 27, 42, 0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 220px;
+    }
+
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(13, 27, 42, 0.10);
+    }
+
+    .review-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .review-author {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 0.98rem;
+    }
+
+    .review-stars {
+      color: #ffb400;
+      letter-spacing: 0.08em;
+      font-size: 0.95rem;
+    }
+
+    .review-text {
+      font-size: 0.94rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .review-meta {
+      font-size: 0.8rem;
+      color: rgba(96, 112, 128, 0.9);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-top: auto;
+      padding-top: 12px;
+    }
 
     /* ─── SECTION WRAPPER ─────────────────────────────────── */
-    section { padding: 96px 24px; }
+    section {
+      padding: 96px 24px;
+    }
 
-    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
     .section-eyebrow {
-      font-size: 0.76rem; font-weight: 600; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--blue);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
       margin-bottom: 12px;
     }
 
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      font-weight: 700; color: var(--navy);
-      line-height: 1.2; margin-bottom: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
     }
-    .section-title span { color: var(--blue); }
+
+    .section-title span {
+      color: var(--blue);
+    }
 
     .section-lead {
-      font-size: 1.05rem; color: var(--muted);
-      line-height: 1.72; max-width: 680px;
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.72;
+      max-width: 680px;
     }
 
     /* ─── SERVICES ────────────────────────────────────────── */
-    #services { background: var(--light); }
+    #services {
+      background: var(--light);
+    }
 
-    .services-header { text-align: center; margin-bottom: 64px; }
-    .services-header .section-lead { margin: 0 auto; }
+    .services-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .services-header .section-lead {
+      margin: 0 auto;
+    }
 
     .services-grid {
       display: grid;
@@ -250,46 +525,63 @@
       transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
       cursor: default;
     }
+
     .service-card::before {
       content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
       background: linear-gradient(90deg, var(--blue), var(--green));
       opacity: 0;
       transition: opacity 0.25s;
     }
+
     .service-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.10);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.10);
       border-color: transparent;
     }
-    .service-card:hover::before { opacity: 1; }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
 
     .service-icon {
-      width: 52px; height: 52px;
-      background: linear-gradient(135deg, rgba(0,174,239,0.12), rgba(0,166,81,0.10));
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, rgba(0, 174, 239, 0.12), rgba(0, 166, 81, 0.10));
       border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 24px;
       font-size: 1.6rem;
     }
 
     .service-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.15rem; font-weight: 600;
+      font-size: 1.15rem;
+      font-weight: 600;
       color: var(--navy);
       margin-bottom: 12px;
       line-height: 1.3;
     }
 
     .service-card p {
-      font-size: 0.92rem; color: var(--muted);
+      font-size: 0.92rem;
+      color: var(--muted);
       line-height: 1.70;
     }
 
     .card-num {
-      position: absolute; top: 28px; right: 28px;
-      font-size: 3.2rem; font-weight: 700;
-      color: rgba(0,174,239,0.06);
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: rgba(0, 174, 239, 0.06);
       font-family: 'Playfair Display', serif;
       line-height: 1;
     }
@@ -298,61 +590,93 @@
     #about {
       background: var(--white);
     }
+
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: center;
     }
+
     .about-visual {
       position: relative;
     }
+
     .about-map-bg {
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
       border-radius: 16px;
       padding: 56px 40px;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255, 255, 255, 0.85);
       position: relative;
       overflow: hidden;
     }
+
     .about-map-bg::before {
       content: '🕌';
       position: absolute;
-      top: -20px; right: -20px;
+      top: -20px;
+      right: -20px;
       font-size: 10rem;
       opacity: 0.06;
     }
+
     .about-map-bg h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem; margin-bottom: 18px;
+      font-size: 1.5rem;
+      margin-bottom: 18px;
       color: #fff;
     }
+
     .about-map-bg p {
-      font-size: 0.93rem; line-height: 1.75;
-      color: rgba(255,255,255,0.70);
+      font-size: 0.93rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.70);
       margin-bottom: 28px;
     }
+
     .location-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(0,174,239,0.18);
-      border: 1px solid rgba(0,174,239,0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 174, 239, 0.18);
+      border: 1px solid rgba(0, 174, 239, 0.35);
       color: var(--blue);
-      font-size: 0.83rem; font-weight: 600;
-      padding: 8px 16px; border-radius: 40px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 40px;
     }
-    .about-content .section-lead { margin-bottom: 28px; }
-    .about-features { list-style: none; margin-top: 24px; }
+
+    .about-content .section-lead {
+      margin-bottom: 28px;
+    }
+
+    .about-features {
+      list-style: none;
+      margin-top: 24px;
+    }
+
     .about-features li {
-      display: flex; align-items: flex-start; gap: 12px;
-      font-size: 0.93rem; color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.93rem;
+      color: var(--muted);
       padding: 10px 0;
       border-bottom: 1px solid var(--border);
     }
-    .about-features li:last-child { border-bottom: none; }
+
+    .about-features li:last-child {
+      border-bottom: none;
+    }
+
     .feature-dot {
-      width: 8px; height: 8px; border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
       background: linear-gradient(135deg, var(--blue), var(--green));
-      flex-shrink: 0; margin-top: 6px;
+      flex-shrink: 0;
+      margin-top: 6px;
     }
 
     /* ─── HIGHLIGHT BAR ───────────────────────────────────── */
@@ -360,87 +684,155 @@
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
       padding: 72px 24px;
     }
+
     .highlight-bar .section-inner {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0;
     }
+
     .highlight-item {
       text-align: center;
       padding: 20px 32px;
-      border-right: 1px solid rgba(255,255,255,0.10);
+      border-right: 1px solid rgba(255, 255, 255, 0.10);
     }
-    .highlight-item:last-child { border-right: none; }
-    .highlight-icon { font-size: 2.2rem; margin-bottom: 14px; }
+
+    .highlight-item:last-child {
+      border-right: none;
+    }
+
+    .highlight-icon {
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+    }
+
     .highlight-item h4 {
       font-family: 'Playfair Display', serif;
-      color: #fff; font-size: 1.1rem; margin-bottom: 8px;
+      color: #fff;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
     }
-    .highlight-item p { font-size: 0.87rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+    .highlight-item p {
+      font-size: 0.87rem;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.65;
+    }
 
     /* ─── FOOTER ──────────────────────────────────────────── */
     footer {
       background: #071525;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255, 255, 255, 0.65);
       padding: 60px 24px 30px;
     }
+
     .footer-inner {
-      max-width: 1200px; margin: 0 auto;
+      max-width: 1200px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 2fr 1fr 1fr;
       gap: 60px;
       padding-bottom: 40px;
-      border-bottom: 1px solid rgba(255,255,255,0.10);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
     }
-    .footer-brand img { height: 40px; margin-bottom: 18px; }
-    .footer-brand p { font-size: 0.88rem; line-height: 1.72; color: rgba(255,255,255,0.50); }
 
-    .footer-col h5 {
-      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--blue);
+    .footer-brand img {
+      height: 40px;
       margin-bottom: 18px;
     }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 10px; font-size: 0.88rem; }
-    .footer-col ul li a { color: rgba(255,255,255,0.60); text-decoration: none; transition: color 0.2s; }
-    .footer-col ul li a:hover { color: var(--blue); }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      line-height: 1.72;
+      color: rgba(255, 255, 255, 0.50);
+    }
+
+    .footer-col h5 {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+      font-size: 0.88rem;
+    }
+
+    .footer-col ul li a {
+      color: rgba(255, 255, 255, 0.60);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--blue);
+    }
 
     .contact-item {
-      display: flex; align-items: flex-start; gap: 10px;
-      margin-bottom: 10px; font-size: 0.88rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 0.88rem;
     }
-    .contact-item span.ic { color: var(--blue); flex-shrink: 0; font-size: 1rem; }
+
+    .contact-item span.ic {
+      color: var(--blue);
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
 
     .footer-bottom {
-      max-width: 1200px; margin: 0 auto;
+      max-width: 1200px;
+      margin: 0 auto;
       padding-top: 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      font-size: 0.82rem; color: rgba(255,255,255,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.35);
     }
 
     .footer-hours {
-      background: rgba(0,174,239,0.08);
-      border: 1px solid rgba(0,174,239,0.18);
+      background: rgba(0, 174, 239, 0.08);
+      border: 1px solid rgba(0, 174, 239, 0.18);
       border-radius: 8px;
       padding: 14px 18px;
       margin-top: 16px;
       font-size: 0.86rem;
     }
-    .footer-hours strong { color: rgba(255,255,255,0.80); }
+
+    .footer-hours strong {
+      color: rgba(255, 255, 255, 0.80);
+    }
 
     .float-contact {
-      position: fixed; right: 0; top: 50%;
+      position: fixed;
+      right: 0;
+      top: 50%;
       transform: translateY(-50%);
       z-index: 900;
-      display: flex; 
-      flex-direction: column; 
+      display: flex;
+      flex-direction: column;
       gap: 2px;
-      align-items: flex-end; /* <-- This stops them from stretching together */
+      align-items: flex-end;
+      /* <-- This stops them from stretching together */
     }
+
     .float-btn {
-      width: 52px; height: 52px;
-      display: flex; align-items: center; 
-      justify-content: flex-start; /* Changed from center to prevent icon shifting */
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      /* Changed from center to prevent icon shifting */
       color: #fff;
       text-decoration: none;
       font-size: 1.3rem;
@@ -450,7 +842,7 @@
       position: relative;
       overflow: hidden;
     }
-    
+
     /* New class: Locks the icon into the initial 52px footprint */
     .float-icon {
       width: 52px;
@@ -461,15 +853,31 @@
       flex-shrink: 0;
     }
 
-    .float-btn.phone  { background: var(--navy2); }
-    .float-btn.email  { background: var(--blue); }
-    .float-btn.whatsapp { background: #25D366; }
-    .float-btn:hover { width: 160px; z-index: 10; }
-    
+    .float-btn.phone {
+      background: var(--navy2);
+    }
+
+    .float-btn.email {
+      background: var(--blue);
+    }
+
+    .float-btn.whatsapp {
+      background: #25D366;
+    }
+
+    .float-btn:hover {
+      width: 160px;
+      z-index: 10;
+    }
+
     .float-label {
-      position: absolute; left: 52px;
-      font-size: 0.80rem; font-weight: 600; white-space: nowrap;
-      opacity: 0; transition: opacity 0.25s;
+      position: absolute;
+      left: 52px;
+      font-size: 0.80rem;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.25s;
       padding: 0 14px;
     }
 
@@ -481,341 +889,677 @@
     } */
 
     /* Keep the original theme color solid on hover to mask background text layers */
-    .float-btn.phone:hover    { background: var(--navy2); }
-    .float-btn.email:hover    { background: var(--blue); }
-    .float-btn.whatsapp:hover { background: #25D366; }
-    
-    .float-btn:hover .float-label { opacity: 1; }
+    .float-btn.phone:hover {
+      background: var(--navy2);
+    }
+
+    .float-btn.email:hover {
+      background: var(--blue);
+    }
+
+    .float-btn.whatsapp:hover {
+      background: #25D366;
+    }
+
+    .float-btn:hover .float-label {
+      opacity: 1;
+    }
 
     /* ─── SCROLL REVEAL ───────────────────────────────────── */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
 
     /* ─── MOBILE ──────────────────────────────────────────── */
     @media (max-width: 900px) {
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .highlight-bar .section-inner { grid-template-columns: 1fr; gap: 32px; }
-      .highlight-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.10); padding: 20px 16px; }
-      .highlight-item:last-child { border-bottom: none; }
-      .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .highlight-bar .section-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .highlight-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+        padding: 20px 16px;
+      }
+
+      .highlight-item:last-child {
+        border-bottom: none;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
     }
 
     @media (max-width: 768px) {
-      nav { display: none; flex-direction: column; gap: 0; position: fixed; inset: 72px 0 0;
-            background: rgba(13,27,42,0.98); padding: 16px; }
-      nav.open { display: flex; }
-      nav a { padding: 14px 16px; border-radius: 8px; font-size: 1rem; }
-      .menu-toggle { display: flex; }
-      .hero-stats { flex-direction: column; gap: 20px; }
-      .stat { border-right: none; }
-      .services-grid { grid-template-columns: 1fr; }
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        position: fixed;
+        inset: 72px 0 0;
+        background: rgba(13, 27, 42, 0.98);
+        padding: 16px;
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      nav a {
+        padding: 14px 16px;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        line-height: 1.24;
+      }
+
+      .hero-sub {
+        font-size: 0.95rem;
+        line-height: 1.75;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .stat {
+        border-right: none;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .reviews-section {
+        padding-top: 36px;
+        padding-bottom: 56px;
+      }
+
+      .review-card {
+        min-width: 250px;
+        max-width: 260px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- ── HEADER ──────────────────────────────────────────────── -->
-<header id="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="logo-wrap">
-      <img src="logo.png" alt="Trablus Tercüme Logo" />
-    </a>
+  <!-- ── HEADER ──────────────────────────────────────────────── -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo-wrap">
+        <img src="logo.png" alt="Trablus Tercüme Logo" />
+      </a>
 
-    <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </div>
-
-    <nav id="main-nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="references.html">References</a>
-      <a href="services.html">Our Services</a>
-      <a href="contact.html" class="nav-cta">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<!-- ── HERO ─────────────────────────────────────────────────── -->
-<section class="hero" id="home">
-  <div class="hero-ring"></div>
-  <div class="hero-ring"></div>
-  <div class="hero-ring"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Istanbul · Since 1990</div>
-    <h1>The Right Address for<br /><span>Your Consular Affairs</span></h1>
-    <p class="hero-sub">
-      Turkey's pioneer company for managing consular affairs before the consulate offices 
-      of Arabic and African countries — serving clients with expertise, trust, and speed.
-    </p>
-    <div class="hero-actions">
-      <a href="services.html" class="btn-primary">Explore Services</a>
-      <a href="contact.html" class="btn-outline">Get in Touch</a>
-    </div>
-
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">30+</div>
-        <div class="stat-label">Years of Experience</div>
+      <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
       </div>
-      <div class="stat">
-        <div class="stat-num">5</div>
-        <div class="stat-label">Languages Served</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Certified Quality</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ── SERVICES ──────────────────────────────────────────────── -->
-<section id="services">
-  <div class="section-inner">
-    <div class="services-header reveal">
-      <div class="section-eyebrow">What We Offer</div>
-      <h2 class="section-title">Our <span>Core Services</span></h2>
-      <p class="section-lead">
-        From document attestation to certified translation, we handle every step with precision and speed — so you can focus on what matters most.
+      <nav id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="references.html">References</a>
+        <a href="services.html">Our Services</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── HERO ─────────────────────────────────────────────────── -->
+  <section class="hero" id="home">
+    <div class="hero-ring"></div>
+    <div class="hero-ring"></div>
+    <div class="hero-ring"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Istanbul · Since 1989</div>
+      <h1>From translation to attestation,<br /><span>from Notary to Apostille</span></h1>
+      <p class="hero-sub">
+        We handle the hard work behind your paperwork. Trablus Tercüme is a trusted translation and document services
+        office in Istanbul, providing sworn translation, notarized translation, apostille, consular attestation, and
+        official document follow-up services. Since 1989, we have helped individuals and businesses complete their
+        legal, commercial, academic, medical, and personal paperwork with accuracy, speed, and confidence.
       </p>
+      <div class="hero-actions">
+        <a href="services.html" class="btn-primary">Explore Services</a>
+        <a href="contact.html" class="btn-outline">Get in Touch</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">30+</div>
+          <div class="stat-label">Years of Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">5</div>
+          <div class="stat-label">Languages Served</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Certified Quality</div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="services-grid">
-
-      <div class="service-card reveal">
-        <div class="card-num">01</div>
-        <div class="service-icon">📋</div>
-        <h3>Document Follow-Up</h3>
-        <p>We provide consultancy for the documents that may be required for your transactions. We prepare the documents and have them attested on your behalf.</p>
+  <!-- ── GOOGLE REVIEWS ─────────────────────────────────────── -->
+  <section class="reviews-section" id="reviews">
+    <div class="section-inner">
+      <div class="reviews-header reveal">
+        <div class="section-eyebrow">Google Reviews</div>
+        <h2 class="section-title">What <span>Clients Say</span></h2>
+        <p class="section-lead">
+          Trusted by clients who value fast, accurate, and dependable handling of translation and document services.
+        </p>
       </div>
 
-      <div class="service-card reveal">
-        <div class="card-num">02</div>
-        <div class="service-icon">📜</div>
-        <h3>Certificate of Origin &amp; Invoice Attestation</h3>
-        <p>We have your certificates of origin and invoices attested by the relevant consulate offices, ensuring seamless trade documentation.</p>
+      <div class="reviews-summary reveal">
+        <div class="rating-pill">⭐ 4.7/5 Google rating</div>
+        <a href="https://www.google.com/maps/place/Trablus+Terc%C3%BCme+ve+Konsolosluk+Hizmetleri/@41.0358908,28.9873132,17z/data=!4m8!3m7!1s0x14cab77aefecae87:0xed902199bca38f2e!8m2!3d41.0358868!4d28.9898935!9m1!1b1!16s%2Fg%2F1w9357bk?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D"
+          class="google-link" target="_blank" rel="noopener">View on Google Maps ↗</a>
       </div>
 
-      <div class="service-card reveal">
-        <div class="card-num">03</div>
-        <div class="service-icon">✅</div>
-        <h3>Notarization &amp; Apostille</h3>
-        <p>We complete all your attestation procedures on your behalf in a fast and reliable way, giving your documents full legal recognition.</p>
+      <div class="reviews-slider reveal">
+        <div class="reviews-viewport">
+          <div class="reviews-track" id="reviewsTrack">
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-author">Ali K.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">Fast, professional, and very helpful with consular paperwork. Everything was
+                handled clearly and on time.</p>
+              <div class="review-meta">Verified Google Review</div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-author">Merve T.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">Excellent communication and dependable service for translation and document
+                follow-up. A very reassuring experience.</p>
+              <div class="review-meta">Verified Google Review</div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-author">Hassan R.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">They made a complicated process feel simple. Their guidance and speed were truly
+                appreciated.</p>
+              <div class="review-meta">Verified Google Review</div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-author">Derya S.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">Professional team, accurate work, and strong attention to detail. Great support for
+                urgent paperwork.</p>
+              <div class="review-meta">Verified Google Review</div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-author">Caner Y.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">Very trustworthy office for official paperwork and translations. The team was
+                responsive and efficient from start to finish.</p>
+              <div class="review-meta">Verified Google Review</div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-author">Selin A.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">Great experience with document attestation and follow-up. They explained every step
+                clearly and saved us time.</p>
+              <div class="review-meta">Verified Google Review</div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-author">Omar B.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">Professional, punctual, and genuinely helpful. They handled our documents with care
+                and precision.</p>
+              <div class="review-meta">Verified Google Review</div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-author">Nesrin C.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">Excellent service for notarized translations and paperwork. I recommend them for
+                anyone needing dependable support.</p>
+              <div class="review-meta">Verified Google Review</div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-author">Ali K.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">Fast, professional, and very helpful with consular paperwork. Everything was
+                handled clearly and on time.</p>
+              <div class="review-meta">Verified Google Review</div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-author">Merve T.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">Excellent communication and dependable service for translation and document
+                follow-up. A very reassuring experience.</p>
+              <div class="review-meta">Verified Google Review</div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-author">Hassan R.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">They made a complicated process feel simple. Their guidance and speed were truly
+                appreciated.</p>
+              <div class="review-meta">Verified Google Review</div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-author">Derya S.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">Professional team, accurate work, and strong attention to detail. Great support for
+                urgent paperwork.</p>
+              <div class="review-meta">Verified Google Review</div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-author">Caner Y.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">Very trustworthy office for official paperwork and translations. The team was
+                responsive and efficient from start to finish.</p>
+              <div class="review-meta">Verified Google Review</div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-author">Selin A.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">Great experience with document attestation and follow-up. They explained every step
+                clearly and saved us time.</p>
+              <div class="review-meta">Verified Google Review</div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-author">Omar B.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">Professional, punctual, and genuinely helpful. They handled our documents with care
+                and precision.</p>
+              <div class="review-meta">Verified Google Review</div>
+            </article>
+
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-author">Nesrin C.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">Excellent service for notarized translations and paperwork. I recommend them for
+                anyone needing dependable support.</p>
+              <div class="review-meta">Verified Google Review</div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ──────────────────────────────────────────────── -->
+  <section id="services">
+    <div class="section-inner">
+      <div class="services-header reveal">
+        <div class="section-eyebrow">What We Offer</div>
+        <h2 class="section-title">Our <span>Core Services</span></h2>
+        <p class="section-lead">
+          From document attestation to certified translation, we handle every step with precision and speed — so you can
+          focus on what matters most.
+        </p>
       </div>
 
-      <div class="service-card reveal">
-        <div class="card-num">04</div>
-        <div class="service-icon">🌐</div>
-        <h3>Certified Translation in All Languages</h3>
-        <p>We provide certified translation services in all languages — primarily Arabic, Turkish, and English — backed by 30 years of expertise in the translation industry.</p>
-      </div>
+      <div class="services-grid">
 
-      <div class="service-card reveal">
-        <div class="card-num">05</div>
-        <div class="service-icon">🛂</div>
-        <h3>Passport &amp; Visa Transactions</h3>
-        <p>We allow you to complete all your passport and visa transactions from a single, convenient location — saving you time and effort.</p>
-      </div>
+        <div class="service-card reveal">
+          <div class="card-num">01</div>
+          <div class="service-icon">📋</div>
+          <h3>Document Follow-Up</h3>
+          <p>We provide consultancy for the documents that may be required for your transactions. We prepare the
+            documents and have them attested on your behalf.</p>
+        </div>
 
-      <div class="service-card reveal">
-        <div class="card-num">06</div>
-        <div class="service-icon">⚡</div>
-        <h3>Fast, Cost-Efficient &amp; Quality Service</h3>
-        <p>We know that time is a valuable asset. We complete all your transactions in a fast and cost-efficient way, without ever sacrificing quality.</p>
-      </div>
+        <div class="service-card reveal">
+          <div class="card-num">02</div>
+          <div class="service-icon">📜</div>
+          <h3>Certificate of Origin &amp; Invoice Attestation</h3>
+          <p>We have your certificates of origin and invoices attested by the relevant consulate offices, ensuring
+            seamless trade documentation.</p>
+        </div>
 
+        <div class="service-card reveal">
+          <div class="card-num">03</div>
+          <div class="service-icon">✅</div>
+          <h3>Notarization &amp; Apostille</h3>
+          <p>We complete all your attestation procedures on your behalf in a fast and reliable way, giving your
+            documents full legal recognition.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="card-num">04</div>
+          <div class="service-icon">🌐</div>
+          <h3>Certified Translation in All Languages</h3>
+          <p>We provide certified translation services in all languages — primarily Arabic, Turkish, and English —
+            backed by 30 years of expertise in the translation industry.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="card-num">05</div>
+          <div class="service-icon">🛂</div>
+          <h3>Passport &amp; Visa Transactions</h3>
+          <p>We allow you to complete all your passport and visa transactions from a single, convenient location —
+            saving you time and effort.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="card-num">06</div>
+          <div class="service-icon">⚡</div>
+          <h3>Fast, Cost-Efficient &amp; Quality Service</h3>
+          <p>We know that time is a valuable asset. We complete all your transactions in a fast and cost-efficient way,
+            without ever sacrificing quality.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HIGHLIGHT BAR ─────────────────────────────────────────── -->
+  <div class="highlight-bar">
+    <div class="section-inner">
+      <div class="highlight-item reveal">
+        <div class="highlight-icon">🕌</div>
+        <h4>Arabic &amp; African Consulates</h4>
+        <p>Specialising in liaison with Arabic, Middle Eastern, and African consulate offices across Turkey.</p>
+      </div>
+      <div class="highlight-item reveal">
+        <div class="highlight-icon">📍</div>
+        <h4>Heart of Istanbul</h4>
+        <p>Our Taksim office places you at the centre of Istanbul's transport network for maximum convenience.</p>
+      </div>
+      <div class="highlight-item reveal">
+        <div class="highlight-icon">🗣️</div>
+        <h4>Multilingual Team</h4>
+        <p>Our expert team speaks Turkish, Arabic, and English — available 5 days a week for all your needs.</p>
+      </div>
     </div>
   </div>
-</section>
 
-<!-- ── HIGHLIGHT BAR ─────────────────────────────────────────── -->
-<div class="highlight-bar">
-  <div class="section-inner">
-    <div class="highlight-item reveal">
-      <div class="highlight-icon">🕌</div>
-      <h4>Arabic &amp; African Consulates</h4>
-      <p>Specialising in liaison with Arabic, Middle Eastern, and African consulate offices across Turkey.</p>
-    </div>
-    <div class="highlight-item reveal">
-      <div class="highlight-icon">📍</div>
-      <h4>Heart of Istanbul</h4>
-      <p>Our Taksim office places you at the centre of Istanbul's transport network for maximum convenience.</p>
-    </div>
-    <div class="highlight-item reveal">
-      <div class="highlight-icon">🗣️</div>
-      <h4>Multilingual Team</h4>
-      <p>Our expert team speaks Turkish, Arabic, and English — available 5 days a week for all your needs.</p>
-    </div>
-  </div>
-</div>
+  <!-- ── ABOUT ─────────────────────────────────────────────────── -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-map-bg">
+            <h3>Established in Taksim — Since 1990</h3>
+            <p>
+              We carry out our business in the field of performing transactions as well as certifying
+              and following documents before consulate offices of Arabic and Middle Eastern countries,
+              particularly <a href="http://libyakonsoloslugu.com/en/index.html"
+                style="color:var(--blue);text-decoration:underline;">Libya</a>
+              and <a href="http://katarkonsoloslugu.com/en/"
+                style="color:var(--blue);text-decoration:underline;">Qatar</a>,
+              at our office in Taksim — the heart of Istanbul — since 1990.
+            </p>
+            <p>
+              Having the necessary technical equipment and an expert team for all services that may be
+              required by the consulate office, we respond to the needs of both consulates and our clients
+              while maintaining communication with the consulate offices at all times.
+            </p>
+            <span class="location-tag">📍 Taksim, Istanbul</span>
+          </div>
+        </div>
 
-<!-- ── ABOUT ─────────────────────────────────────────────────── -->
-<section id="about">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-visual reveal">
-        <div class="about-map-bg">
-          <h3>Established in Taksim — Since 1990</h3>
-          <p>
-            We carry out our business in the field of performing transactions as well as certifying 
-            and following documents before consulate offices of Arabic and Middle Eastern countries, 
-            particularly <a href="http://libyakonsoloslugu.com/en/index.html" style="color:var(--blue);text-decoration:underline;">Libya</a> 
-            and <a href="http://katarkonsoloslugu.com/en/" style="color:var(--blue);text-decoration:underline;">Qatar</a>, 
-            at our office in Taksim — the heart of Istanbul — since 1990.
+        <div class="about-content reveal">
+          <div class="section-eyebrow">About Us</div>
+          <h2 class="section-title">Why Choose <span>Trablus Tercüme?</span></h2>
+          <p class="section-lead">
+            Our expert team members who can speak Turkish, Arabic, and English offer services
+            5 days a week from our Taksim office — located at the heart of Istanbul's transport network.
           </p>
-          <p>
-            Having the necessary technical equipment and an expert team for all services that may be 
-            required by the consulate office, we respond to the needs of both consulates and our clients 
-            while maintaining communication with the consulate offices at all times.
-          </p>
-          <span class="location-tag">📍 Taksim, Istanbul</span>
+          <ul class="about-features">
+            <li><span class="feature-dot"></span>Pioneer company for Arabic &amp; African consular affairs in Turkey
+            </li>
+            <li><span class="feature-dot"></span>30+ years of certified translation expertise</li>
+            <li><span class="feature-dot"></span>Dedicated liaison with Libya, Qatar, and other consulate offices</li>
+            <li><span class="feature-dot"></span>Complete document preparation, attestation &amp; follow-up</li>
+            <li><span class="feature-dot"></span>Passport, visa, apostille &amp; notarisation services</li>
+            <li><span class="feature-dot"></span>Multilingual team: Turkish, Arabic &amp; English</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Trablus Tercüme" />
+        <p>Turkey's pioneer company for consular affairs and certified translation — serving businesses and individuals
+          since 1990 from the heart of Istanbul.</p>
+        <div class="footer-hours">
+          <strong>Office Hours</strong><br />
+          Mon – Fri &nbsp;|&nbsp; 08:00 – 18:00
         </div>
       </div>
 
-      <div class="about-content reveal">
-        <div class="section-eyebrow">About Us</div>
-        <h2 class="section-title">Why Choose <span>Trablus Tercüme?</span></h2>
-        <p class="section-lead">
-          Our expert team members who can speak Turkish, Arabic, and English offer services 
-          5 days a week from our Taksim office — located at the heart of Istanbul's transport network.
-        </p>
-        <ul class="about-features">
-          <li><span class="feature-dot"></span>Pioneer company for Arabic &amp; African consular affairs in Turkey</li>
-          <li><span class="feature-dot"></span>30+ years of certified translation expertise</li>
-          <li><span class="feature-dot"></span>Dedicated liaison with Libya, Qatar, and other consulate offices</li>
-          <li><span class="feature-dot"></span>Complete document preparation, attestation &amp; follow-up</li>
-          <li><span class="feature-dot"></span>Passport, visa, apostille &amp; notarisation services</li>
-          <li><span class="feature-dot"></span>Multilingual team: Turkish, Arabic &amp; English</li>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="references.html">References</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- ── FOOTER ─────────────────────────────────────────────────── -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <img src="logo.png" alt="Trablus Tercüme" />
-      <p>Turkey's pioneer company for consular affairs and certified translation — serving businesses and individuals since 1990 from the heart of Istanbul.</p>
-      <div class="footer-hours">
-        <strong>Office Hours</strong><br />
-        Mon – Fri &nbsp;|&nbsp; 08:00 – 18:00
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="contact-item"><span class="ic">📞</span>+90 (212) 245 91 97</div>
+        <div class="contact-item"><span class="ic">📞</span>+90 (212) 243 38 98</div>
+        <div class="contact-item"><span class="ic">📱</span>+90 (541) 341 99 98</div>
+        <div class="contact-item"><span class="ic">📱</span>+90 (553) 373 41 38</div>
+        <div class="contact-item"><span class="ic">✉️</span>mense@trablus.net</div>
+        <div class="contact-item"><span class="ic">✉️</span>trablustercume@gmail.com</div>
       </div>
     </div>
 
-    <div class="footer-col">
-      <h5>Navigation</h5>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Our Services</a></li>
-        <li><a href="references.html">References</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <span>© 2026 Trablus Tercüme ve Danışmanlık Hizmetleri Ltd. Şti.</span>
+      <span style="color:rgba(255,255,255,0.20);">Taksim, Istanbul</span>
     </div>
+  </footer>
 
-    <div class="footer-col">
-      <h5>Contact</h5>
-      <div class="contact-item"><span class="ic">📞</span>+90 (212) 245 91 97</div>
-      <div class="contact-item"><span class="ic">📞</span>+90 (212) 243 38 98</div>
-      <div class="contact-item"><span class="ic">📱</span>+90 (541) 341 99 98</div>
-      <div class="contact-item"><span class="ic">📱</span>+90 (553) 373 41 38</div>
-      <div class="contact-item"><span class="ic">✉️</span>mense@trablus.net</div>
-      <div class="contact-item"><span class="ic">✉️</span>trablustercume@gmail.com</div>
-    </div>
+  <!-- ── FLOATING CONTACT ──────────────────────────────────────── -->
+  <div class="float-contact" role="complementary" aria-label="Quick contact">
+    <a href="tel:+902122459197" class="float-btn phone" title="Call us">
+      <span class="float-icon">📞</span><span class="float-label">Call Us</span>
+    </a>
+    <a href="mailto:mense@trablus.net" class="float-btn email" title="Email us">
+      <span class="float-icon">✉️</span><span class="float-label">Email Us</span>
+    </a>
+    <a href="https://wa.me/905413419998" class="float-btn whatsapp" title="WhatsApp" target="_blank" rel="noopener">
+      <span class="float-icon">💬</span><span class="float-label">WhatsApp</span>
+    </a>
   </div>
 
-  <div class="footer-bottom">
-    <span>© 2026 Trablus Tercüme ve Danışmanlık Hizmetleri Ltd. Şti.</span>
-    <span style="color:rgba(255,255,255,0.20);">Taksim, Istanbul</span>
-  </div>
-</footer>
+  <!-- ── SCRIPTS ───────────────────────────────────────────────── -->
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    });
 
-<!-- ── FLOATING CONTACT ──────────────────────────────────────── -->
-<div class="float-contact" role="complementary" aria-label="Quick contact">
-  <a href="tel:+902122459197" class="float-btn phone" title="Call us">
-    <span class="float-icon">📞</span><span class="float-label">Call Us</span>
-  </a>
-  <a href="mailto:mense@trablus.net" class="float-btn email" title="Email us">
-    <span class="float-icon">✉️</span><span class="float-label">Email Us</span>
-  </a>
-  <a href="https://wa.me/905413419998" class="float-btn whatsapp" title="WhatsApp" target="_blank" rel="noopener">
-    <span class="float-icon">💬</span><span class="float-label">WhatsApp</span>
-  </a>
-</div>
+    // Mobile menu
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('main-nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      const spans = toggle.querySelectorAll('span');
+      if (nav.classList.contains('open')) {
+        spans[0].style.transform = 'translateY(7px) rotate(45deg)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+      } else {
+        spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      }
+    });
 
-<!-- ── SCRIPTS ───────────────────────────────────────────────── -->
-<script>
-  // Header scroll effect
-  const header = document.getElementById('site-header');
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 20);
-  });
+    // Close menu when a nav link is clicked
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      });
+    });
 
-  // Mobile menu
-  const toggle = document.getElementById('menuToggle');
-  const nav    = document.getElementById('main-nav');
-  toggle.addEventListener('click', () => {
-    nav.classList.toggle('open');
-    const spans = toggle.querySelectorAll('span');
-    if (nav.classList.contains('open')) {
-      spans[0].style.transform = 'translateY(7px) rotate(45deg)';
-      spans[1].style.opacity   = '0';
-      spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
-    } else {
-      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => io.observe(el));
+
+    // Reviews slider
+    const reviewsTrack = document.getElementById('reviewsTrack');
+    const reviewCards = Array.from(document.querySelectorAll('.review-card'));
+    const originals = [...reviewCards];
+    const duplicatedCards = [...originals, ...originals.map(card => card.cloneNode(true))];
+    duplicatedCards.forEach(card => reviewsTrack.appendChild(card));
+
+    let reviewIndex = 0;
+    let autoScrollTimer = null;
+
+    function updateReviews() {
+      const cardWidth = originals[0].getBoundingClientRect().width + 20;
+      reviewsTrack.style.transform = `translateX(-${reviewIndex * cardWidth}px)`;
     }
-  });
 
-  // Close menu when a nav link is clicked
-  nav.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      nav.classList.remove('open');
-      toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    function startAutoScroll() {
+      clearInterval(autoScrollTimer);
+      autoScrollTimer = setInterval(() => {
+        reviewIndex += 1;
+        const totalVisible = originals.length;
+        const cardWidth = originals[0].getBoundingClientRect().width + 20;
+
+        if (reviewIndex >= totalVisible) {
+          reviewIndex = 0;
+          reviewsTrack.style.transition = 'none';
+          reviewsTrack.style.transform = 'translateX(0)';
+          requestAnimationFrame(() => {
+            reviewsTrack.style.transition = 'transform 0.45s ease';
+            reviewIndex = 1;
+            reviewsTrack.style.transform = `translateX(-${cardWidth}px)`;
+          });
+        } else {
+          reviewsTrack.style.transition = 'transform 0.45s ease';
+          reviewsTrack.style.transform = `translateX(-${reviewIndex * cardWidth}px)`;
+        }
+      }, 3000);
+    }
+
+    reviewsTrack.addEventListener('mouseenter', () => {
+      clearInterval(autoScrollTimer);
     });
-  });
 
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        io.unobserve(entry.target);
-      }
+    reviewsTrack.addEventListener('mouseleave', () => {
+      startAutoScroll();
     });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => io.observe(el));
 
-  // Animated counter
-  function animateNum(el, target, suffix='') {
-    let start = 0;
-    const dur = 1800;
-    const step = timestamp => {
-      if (!start) start = timestamp;
-      const progress = Math.min((timestamp - start) / dur, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(eased * target) + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }
+    window.addEventListener('resize', updateReviews);
+    startAutoScroll();
+    updateReviews();
 
-  const statNums = document.querySelectorAll('.stat-num');
-  const statIO = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const txt = el.textContent;
-        if (txt.includes('+')) animateNum(el, parseInt(txt), '+');
-        else if (txt.includes('%')) animateNum(el, parseInt(txt), '%');
-        else animateNum(el, parseInt(txt));
-        statIO.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-  statNums.forEach(el => statIO.observe(el));
-</script>
+    // Animated counter
+    function animateNum(el, target, suffix = '') {
+      let start = 0;
+      const dur = 1800;
+      const step = timestamp => {
+        if (!start) start = timestamp;
+        const progress = Math.min((timestamp - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    const statNums = document.querySelectorAll('.stat-num');
+    const statIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const txt = el.textContent;
+          if (txt.includes('+')) animateNum(el, parseInt(txt), '+');
+          else if (txt.includes('%')) animateNum(el, parseInt(txt), '%');
+          else animateNum(el, parseInt(txt));
+          statIO.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    statNums.forEach(el => statIO.observe(el));
+  </script>
 </body>
+
 </html>
