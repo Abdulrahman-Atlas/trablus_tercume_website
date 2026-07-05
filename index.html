@@ -23,7 +23,7 @@
       --navy: #0D1B2A;
       --navy2: #162840;
       --gold: #C8A951;
-      --light: #F4F8FC;
+      --light: #E8F0F8;
       --white: #FFFFFF;
       --text: #1E2C3A;
       --muted: #607080;
@@ -588,7 +588,7 @@
 
     /* ─── ABOUT ───────────────────────────────────────────── */
     #about {
-      background: var(--white);
+      background: var(--light);
     }
 
     .about-grid {
@@ -1080,6 +1080,171 @@
       color: var(--blue);
       transform: translateY(-2px);
     }
+    /* Graphical Process Timeline */
+    .process-section {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+    .process-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+    .process-header h2 {
+      color: var(--green);
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+    .timeline-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto 4rem auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    .timeline-line {
+      position: absolute;
+      top: 85px;
+      left: 5%;
+      right: 5%;
+      height: 3px;
+      background: #e0e0e0;
+      z-index: 1;
+    }
+    .timeline-step {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 16%;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+    .timeline-icon {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: #555;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      filter: grayscale(100%) opacity(0.8);
+    }
+    .timeline-dot {
+      width: 20px;
+      height: 20px;
+      background: var(--white);
+      border: 3px solid #ccc;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 3;
+    }
+    .timeline-title {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-step:hover .timeline-icon {
+      transform: translateY(-5px);
+      filter: grayscale(0%) opacity(1);
+    }
+    .timeline-step:hover .timeline-dot {
+      border-color: var(--green);
+    }
+    .timeline-step.active .timeline-icon {
+      filter: grayscale(0%) opacity(1);
+      transform: translateY(-5px);
+    }
+    .timeline-step.active .timeline-dot {
+      border-color: var(--green);
+      background: var(--white);
+      box-shadow: 0 0 0 4px rgba(0, 166, 81, 0.2);
+    }
+    .timeline-step.active .timeline-title {
+      color: var(--navy);
+    }
+
+    .process-content-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--light);
+      padding: 3rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      text-align: center;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .process-content {
+      display: none;
+      animation: fadeIn 0.4s ease forwards;
+    }
+    .process-content.active {
+      display: block;
+    }
+    .process-content h3 {
+      color: var(--green);
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+    .process-content p {
+      font-size: 1.1rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .process-footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    @media (max-width: 768px) {
+      .timeline-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3rem;
+      }
+      .timeline-line {
+        top: 0;
+        bottom: 0;
+        left: 45px;
+        width: 3px;
+        height: 100%;
+      }
+      .timeline-step {
+        flex-direction: row;
+        width: 100%;
+        text-align: left;
+      }
+      .timeline-icon {
+        margin-bottom: 0;
+        margin-right: 1.5rem;
+        width: 50px;
+      }
+      .timeline-dot {
+        margin-bottom: 0;
+        margin-right: 1.5rem;
+        position: absolute;
+        left: 36px;
+      }
+      .timeline-title {
+        margin-left: 1.5rem;
+        font-size: 1.1rem;
+      }
+    }
   </style>
 </head>
 
@@ -1439,26 +1604,79 @@
     </div>
   </section>
 
-  <!-- ── HIGHLIGHT BAR ─────────────────────────────────────────── -->
-  <div class="highlight-bar">
+  <!-- ── PROCESS SECTION ─────────────────────────────────────────── -->
+  <section id="process" class="process-section">
     <div class="section-inner">
-      <div class="highlight-item reveal">
-        <div class="highlight-icon">🕌</div>
-        <h4>Arabic &amp; African Consulates</h4>
-        <p>Specialising in liaison with Arabic, Middle Eastern, and African consulate offices across Turkey.</p>
+      <div class="process-header reveal">
+        <h2>HOW DO WE WORK ?</h2>
       </div>
-      <div class="highlight-item reveal">
-        <div class="highlight-icon">📍</div>
-        <h4>Heart of Istanbul</h4>
-        <p>Our Taksim office places you at the centre of Istanbul's transport network for maximum convenience.</p>
+
+      <div class="timeline-container reveal">
+        <div class="timeline-line"></div>
+        <button class="timeline-step active process-step-btn" data-step="step-1">
+          <div class="timeline-icon">🌍</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">Send Documents</div>
+        </button>
+        <button class="timeline-step process-step-btn" data-step="step-2">
+          <div class="timeline-icon">🔍</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">Analysis</div>
+        </button>
+        <button class="timeline-step process-step-btn" data-step="step-3">
+          <div class="timeline-icon">💳</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">Quote</div>
+        </button>
+        <button class="timeline-step process-step-btn" data-step="step-4">
+          <div class="timeline-icon">📝</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">Translation</div>
+        </button>
+        <button class="timeline-step process-step-btn" data-step="step-5">
+          <div class="timeline-icon">🏛️</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">Attestation</div>
+        </button>
+        <button class="timeline-step process-step-btn" data-step="step-6">
+          <div class="timeline-icon">🚚</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-title">Delivery</div>
+        </button>
       </div>
-      <div class="highlight-item reveal">
-        <div class="highlight-icon">🗣️</div>
-        <h4>Multilingual Team</h4>
-        <p>Our expert team speaks Turkish, Arabic, and English — available 5 days a week for all your needs.</p>
+
+      <div class="process-content-container reveal">
+        <div class="process-content active" id="step-1">
+          <h3>Send Your Documents</h3>
+          <p>Submit your documents to us via WhatsApp, email, or by visiting our office.</p>
+        </div>
+        <div class="process-content" id="step-2">
+          <h3>Procedure Analysis</h3>
+          <p>Let's determine the correct translation, notary, apostille, or consular process by learning what your document will be used for.</p>
+        </div>
+        <div class="process-content" id="step-3">
+          <h3>Quote & Approval</h3>
+          <p>We will provide you with a clear price and delivery time based on the scope of the procedure. We will start the process upon your approval.</p>
+        </div>
+        <div class="process-content" id="step-4">
+          <h3>Translation and Review</h3>
+          <p>Our expert sworn translator will carefully translate your document, followed by a review completed by an independent translator.</p>
+        </div>
+        <div class="process-content" id="step-5">
+          <h3>Notary, Apostille or Consular Procedures</h3>
+          <p>When necessary, we follow up on notary attestation, apostille, or consular procedures on your behalf.</p>
+        </div>
+        <div class="process-content" id="step-6">
+          <h3>Delivery</h3>
+          <p>We will deliver your completed documents digitally, via courier, or you can pick them up from our office.</p>
+        </div>
+      </div>
+
+      <div class="process-footer reveal">
+        We are by your side at every step.
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- ── ABOUT ─────────────────────────────────────────────────── -->
   <section id="about">
@@ -1693,6 +1911,21 @@
         
         btn.classList.add('active');
         const target = document.getElementById(btn.dataset.target);
+        if(target) target.classList.add('active');
+      });
+    });
+
+    // Process Steps
+    const stepBtns = document.querySelectorAll('.process-step-btn');
+    const stepContents = document.querySelectorAll('.process-content');
+
+    stepBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        stepBtns.forEach(b => b.classList.remove('active'));
+        stepContents.forEach(c => c.classList.remove('active'));
+        
+        btn.classList.add('active');
+        const target = document.getElementById(btn.dataset.step);
         if(target) target.classList.add('active');
       });
     });
