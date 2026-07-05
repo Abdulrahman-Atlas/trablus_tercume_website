@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trablus Tercüme | Translation & Consular Affairs</title>
+  <title>Trablus Tercüme</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
@@ -1003,6 +1003,83 @@
         max-width: 260px;
       }
     }
+    /* Interactive Services Tabs */
+    .services-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .service-tab-btn {
+      padding: 0.8rem 1.5rem;
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .service-tab-btn:hover {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+      transform: translateY(-2px);
+    }
+    .service-tab-btn.active {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+      box-shadow: 0 4px 15px rgba(0, 174, 239, 0.3);
+    }
+    .services-content-group {
+      display: none;
+      animation: fadeIn 0.5s ease forwards;
+    }
+    .services-content-group.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .services-cta {
+      margin-top: 4rem;
+      padding: 2.5rem;
+      background: var(--navy);
+      border-radius: 12px;
+      text-align: center;
+      color: var(--white);
+      box-shadow: 0 10px 30px rgba(13, 27, 42, 0.15);
+    }
+    .services-cta h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+    .services-cta p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-inline: auto;
+    }
+    .services-cta .btn {
+      background: var(--blue);
+      color: var(--white);
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+    .services-cta .btn:hover {
+      background: var(--white);
+      color: var(--blue);
+      transform: translateY(-2px);
+    }
   </style>
 </head>
 
@@ -1255,65 +1332,110 @@
   <section id="services">
     <div class="section-inner">
       <div class="services-header reveal">
-        <div class="section-eyebrow">What We Offer</div>
-        <h2 class="section-title">Our <span>Core Services</span></h2>
+        <div class="section-eyebrow">Our Services</div>
+        <h2 class="section-title">Our Areas of <span>Expertise</span></h2>
         <p class="section-lead">
-          From document attestation to certified translation, we handle every step with precision and speed — so you can
-          focus on what matters most.
+          Send us your documents, let's determine the type of process together and offer you the most suitable solution.
         </p>
       </div>
 
-      <div class="services-grid">
-
-        <div class="service-card reveal">
-          <div class="card-num">01</div>
-          <div class="service-icon">📋</div>
-          <h3>Document Follow-Up</h3>
-          <p>We provide consultancy for the documents that may be required for your transactions. We prepare the
-            documents and have them attested on your behalf.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="card-num">02</div>
-          <div class="service-icon">📜</div>
-          <h3>Certificate of Origin &amp; Invoice Attestation</h3>
-          <p>We have your certificates of origin and invoices attested by the relevant consulate offices, ensuring
-            seamless trade documentation.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="card-num">03</div>
-          <div class="service-icon">✅</div>
-          <h3>Notarization &amp; Apostille</h3>
-          <p>We complete all your attestation procedures on your behalf in a fast and reliable way, giving your
-            documents full legal recognition.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="card-num">04</div>
-          <div class="service-icon">🌐</div>
-          <h3>Certified Translation in All Languages</h3>
-          <p>We provide certified translation services in all languages — primarily Arabic, Turkish, and English —
-            backed by 30 years of expertise in the translation industry.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="card-num">05</div>
-          <div class="service-icon">🛂</div>
-          <h3>Passport &amp; Visa Transactions</h3>
-          <p>We allow you to complete all your passport and visa transactions from a single, convenient location —
-            saving you time and effort.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="card-num">06</div>
-          <div class="service-icon">⚡</div>
-          <h3>Fast, Cost-Efficient &amp; Quality Service</h3>
-          <p>We know that time is a valuable asset. We complete all your transactions in a fast and cost-efficient way,
-            without ever sacrificing quality.</p>
-        </div>
-
+      <div class="services-tabs reveal">
+        <button class="service-tab-btn active" data-target="tab-translation">Translation Services</button>
+        <button class="service-tab-btn" data-target="tab-attestation">Approval & Attestation</button>
+        <button class="service-tab-btn" data-target="tab-consultancy">Consultancy & Other Services</button>
       </div>
+
+      <div class="services-content-group active" id="tab-translation">
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🌐</div>
+            <h3>Certified Translation</h3>
+            <p>We provide accurate, complete, and reliable certified translation services for your documents to be used in official institutions. We prepare certified translations for many documents such as IDs, passports, diplomas, transcripts, birth certificates, court decisions, power of attorney, contracts, and company documents.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🗣️</div>
+            <h3>Interpreting Services</h3>
+            <p>We provide interpreting support for your meetings, notary transactions, official institution interviews, commercial meetings, health appointments, or private meetings. We help your communication proceed accurately and understandably in Turkish, Arabic, and other required languages.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">⚡</div>
+            <h3>Urgent Translation Support</h3>
+            <p>We offer fast translation and document support for your time-sensitive transactions. We try to produce solutions as soon as possible by prioritizing the process for your documents that need to meet urgent applications, appointments, official procedures, or deadlines.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="services-content-group" id="tab-attestation">
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">⚖️</div>
+            <h3>Notary Approval</h3>
+            <p>We prepare your documents in accordance with notary attestation after certified translation and safely follow the approval process.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">📜</div>
+            <h3>Apostille Procedures</h3>
+            <p>By following the translation, notary approval, and relevant institutional processes in the correct order for your apostille transactions, we make your documents ready for international use.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🏛️</div>
+            <h3>Consular Attestation</h3>
+            <p>We offer the necessary translation, file preparation, and follow-up support for your documents to be used in or approved by the consulate. Depending on the application type, we help prepare your documents appropriately and carry out the attestation process correctly.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🧾</div>
+            <h3>Certificate of Origin & Invoice Attestation</h3>
+            <p>We support translation and approval processes for certificates of origin, invoices, export, and company documents used in your commercial transactions. We assist in preparing your documents in accordance with relevant institution and consulate procedures.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🏥</div>
+            <h3>Legalization of Medical Documents</h3>
+            <p>We provide support in the translation and legalization processes of health documents such as pharmaceutical certificates, factory licenses, and GMP certificates. We help your medical documents be prepared in accordance with the official application or international use purposes.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🏢</div>
+            <h3>Institutional Approval Procedures</h3>
+            <p>We provide consultancy and follow-up support for necessary approval processes before the Istanbul Governorship, Chamber of Commerce, Ministry of Foreign Affairs, embassies, and relevant official institutions. By determining the correct approval path according to the document type and destination country, we help your transactions proceed smoothly.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="services-content-group" id="tab-consultancy">
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">📂</div>
+            <h3>File Preparation Support</h3>
+            <p>We provide file preparation support for your visa, consulate, official application, and institutional procedures. We help you prepare your application file completely on matters such as photographs, form filling, photocopying, travel insurance, petition preparation, and necessary document control.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">📈</div>
+            <h3>Libya Company Formation & Branch Opening</h3>
+            <p>We provide document preparation, translation, approval, and consultancy support for company formation or branch opening processes in Libya. We assist in preparing your commercial documents in accordance with official requirements and carrying out the processes with correct steps.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🛂</div>
+            <h3>Libya Visa Procedures</h3>
+            <p>We offer support regarding the preparation, control, and application process of necessary documents for Libya visa applications. We arrange the necessary documents according to the application type and make your file complete.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">✈️</div>
+            <h3>Moldova Transit Visa Application</h3>
+            <p>We provide support regarding the necessary document list, form filling, file arrangement, and application preparation for Moldova transit visa applications. We assist in preparing your documents in accordance with your travel plan.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🤝</div>
+            <h3>Macedonia Citizenship Procedure Consultancy</h3>
+            <p>We offer consultancy support for document preparation, translation, file control, and application processes for Macedonia citizenship procedures. We stand by your side for the correct preparation of necessary documents and the regular follow-up of the process.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="services-cta reveal">
+        <h3>Don't know which service you need?</h3>
+        <p>Send us your documents, let's determine the type of process together and offer you the most suitable solution.</p>
+        <a href="contact.html" class="btn">Contact Us</a>
+      </div>
+      
     </div>
   </section>
 
@@ -1559,6 +1681,21 @@
       });
     }, { threshold: 0.5 });
     statNums.forEach(el => statIO.observe(el));
+
+    // Services Tabs
+    const tabBtns = document.querySelectorAll('.service-tab-btn');
+    const tabContents = document.querySelectorAll('.services-content-group');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+        
+        btn.classList.add('active');
+        const target = document.getElementById(btn.dataset.target);
+        if(target) target.classList.add('active');
+      });
+    });
   </script>
 </body>
 
